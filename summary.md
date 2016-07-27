@@ -30,6 +30,8 @@ Many distributions IRL follow are power law distributions. For example, few lang
 
 # Small Worlds Network
 
+In a social network most people have **Six Degrees Of Separation** between them, i.e. there are 6 other people between them and any other person.
+
 
 # Centrality
 
