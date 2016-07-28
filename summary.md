@@ -75,7 +75,7 @@ $$
 
 The graph above has the adjacency matrix:
 
-~~~
+~~~octave
 A = [
   [0, 1, 1, 0, 0],
   [1, 0, 1, 0, 1],
@@ -100,7 +100,7 @@ Somehow we recognize the 5th column of $V$ as the Eigenvector Centrality Vector 
 
 This can also be calculated manually through the power-iteration:
 
-~~~
+~~~octave
 power_v = ones(rows(A), 1);
 e = 0.000001;
 l = 0;
