@@ -98,6 +98,34 @@ V =
 
 Somehow we recognize the 5th column of $V$ as the Eigenvector Centrality Vector (maybe it's because it is the only column that does not contain mixed signs?). Anyway, each element in that column tells us the "Centrality" of the corresponding node (in the example the node $2$ obviously has the highest Centrality).
 
+This can also be calculated manually through the power-iteration:
+
+~~~
+power_v = ones(rows(A), 1);
+e = 0.000001;
+l = 0;
+
+do
+  power_v = A*power_v;
+  l_prev = l;
+  l = norm(power_v);
+  power_v = power_v/l;
+until (abs(l_prev - l) < e)
+~~~
+
+For the example above, this produces
+
+~~~
+power_v =
+   0.35061
+   0.46998
+   0.55890
+   0.35061
+   0.46998
+~~~
+
+which is close enough.
+
 # Link Prediction
 
 
