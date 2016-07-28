@@ -6,16 +6,17 @@ A = [
 [0, 1, 1, 1, 0]
 ]
 
-v = ones(5, 1);
-e = 0.0001;
+power_v = ones(rows(A), 1);
+e = 0.000001;
 l = 0;
 
 do
-  v = A*v;
+  power_v = A*power_v;
   l_prev = l;
-  l = norm(v)
-  v = v/l
-until (l_prev - l < e)
+  l = norm(power_v);
+  power_v = power_v/l;
+until (abs(l_prev - l) < e)
 
-v
-[V, eigs] = eig(A)
+power_v
+[V, eigs] = eigs(A, 1);
+V
