@@ -41,6 +41,41 @@ In a social network most people have **Six Degrees Of Separation** between them,
 
 # Centrality
 
+* **Degree**: Number of Neighbors
+* **Betweenness** (of an edge): Number of shortest paths in which it is contained.
+* **Closeness**: Average distance to all other nodes.
+* **Eccentricity**: Maximum distance to all other nodes. The **Diameter** of a graph is the maximum Eccentricity. The **Radius** of a graph is the minimum Eccentricity.
+* **In-Degree** (directed graph):
+* **Random Walk Centrality** (directed graph):
+* **PageRank** (directed graph):
+* **HITS** (directed graph):
+
+## Eigenvector Centrality
+
+Square matrices can be used to transform vectors. For every square matrix, there is a non-zero vector whose direction is not changed by the transformation. This is the **Eigenvector**, and the change in length is the **Eigenvalue** of the transformation matrix. Hence the formula $$Av = \lambda v$$ where $$A$$ is the matrix, $$v$$ the Eigenvector and $$\lambda$$ the Eigenvalue. For example:
+
+$$
+\[
+ \begin{matrix}
+  2 & 1 \\
+  1 & 2
+ \end{matrix}
+\]
+\[
+ \begin{matrix}
+  3 \\
+  -3
+ \end{matrix}
+\]
+=
+1
+\[
+ \begin{matrix}
+  3 \\
+  -3
+ \end{matrix}
+\]
+$$
 
 # Link Prediction
 
