@@ -267,6 +267,18 @@ For the Pareto Optimum, we'll just walk through the matrix and look at every val
 
 # Markets
 
+A **Market With Exogenous Events** is a Market where events are not influenced by price formation in the market (e.g. bets on sports do not change the players' performance), unlike an **Market With Endogenous Events**, where the market influences events (e.g. success of a company depends on its stock prices).
+
+The **Utility** of a thing is its subjective value. It is modeled by a **Utility Function**, a sublinear function that is strictly monotically decreasing, like $U(w) = \sqrt{w}$, where $w$ is the monetary value.
+
+> Because having two million Euro is not twice as useful as having one million Euro!
+
+**Odds**-Betting: An Event has the odds $o_X$ (odds as in "4:1" odds to win) and you bet $m$ moneyz. Winners receive $o_X m$ moneyz.
+
+*Bettig Strategy stuff omitted.*
+
+**Prediction Markets** synthesize idividual believs into predictions.
+
 
 # Signed Networks
 
