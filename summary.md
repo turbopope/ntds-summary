@@ -181,7 +181,21 @@ Examines situations where the outcome for one person depends both on their and o
 | Give 4          | (1,4)  | (0,0)  |
 | Give 5          | (0,5)  | (0,0)  |
 
-The slides say that *Give 1/Accept* is "the best strategy" but I don't see why, since all payoffs in the *Accept*-column sum up to 5 and also why is a strategy suddenly a pair of "choices" and not just a "choice"?
+```
+The slides say that *Give 1/Accept* is "the best strategy"
+but I don't see why, since all payoffs in the *Accept*-column
+sum up to 5 and also why is a strategy suddenly a pair of
+"choices" and not just a "choice"?
+– Marcő
+```
+
+That's because the example is bad, it's not actually a simultaneous choice. Player 1 chooses an amount and Player 2 decides *afterwards* if they want to accept or reject. Example broken.
+
+However, you can still reason about this. All players are omniscient, even about each other. They also behave “rationally”, i.e. their prime directive is to optimize their own gain and their secondary objective is to minimize their opponent's gain (unless it's a collaborative game, but whatever).
+
+If Player 1 gives 0, Player 2 can't optimize their own gain, so they will fall back to minimizing their opponent's game, leading to a rejection. If Player 1 gives them any other amount, they will accept, because rejecting would compromise the prime directive.
+
+Because of their omniscience, Player 1 *knows* that Player 2 will respond like this, so giving 1 is obviously the best option. This is also why it's a pair of choice, Player 1 already knows what Player 2 will choose and bases their strategy on that.
 
 If Player2 chooses a strategy $T$, $S$ is the **(strict) best response** if it's payoff is better (strictly better) than every other response:
 
@@ -202,14 +216,54 @@ A **Nash Equilibrium** is a pair of strategies that are best responses to each o
 | MSOffice   | (1, 1)   | (0, 0)     |
 | OpenOffice | (0, 0)   | (1, 1)     |
 
-An outcome of a game is **Pareto Optimal** if no other outcome makes all players as well off and at least one player better off. A pair of strategies is **dominated** by another pair if the above is true. $(S,T)$ is dominated by $(S',T')$ if:
+An outcome of a game is **Pareto Optimal** if there is no way to increase the total payoff without reducing the payoff of an individual. A pair of strategies is **dominated** by another pair if the above is true. $(S,T)$ is dominated by $(S',T')$ if:
 
 $$
-P_1(S') \gt P_1(S) \land P_2(T') \geq P_2(T) \lor P_1(S') \geq P_1(S) \land P_2(T') \gt P_2(T)
+P_1(S') > P_1(S) \land P_2(T') \geq P_2(T) \lor P_1(S') \geq P_1(S) \land P_2(T') > P_2(T)
 $$
 
 If a player only plays one strategy, he is playing a **Pure Strategy**. If he chooses the strategy at random, he is playing a **Mixed Strategy**. If all players play a Pure Strategy and a Nash Equlibrium, this is called **Pure Strategy Nash Equilibrium**.
 
+
+## Example
+
+In exercise 7, we have this here payoff matrix:
+
+|            | Player1: A | Player1: B | Player1: C |
+| ---------- | ---------- | ---------- | ---------- |
+| Player2: A | (4, 2)     | (5, 1)     | (3, 0)     |
+| Player2: B | (3, 2)     | (4, 4)     | (1, 0)     |
+| Player2: C | (2, 3)     | (4, 2)     | (3, 2)     |
+
+First off, we'll need the best responses for both players. For that I have developed a response matrix notation, patent pending.
+
+| Player 2 picks | Best responses for Player 1 |
+| -------------- | --------------------------- |
+| A              | B                           |
+| B              | B                           |
+| C              | B                           |
+
+| Player 1 picks | Best responses for Player 2 |
+| -------------- | --------------------------- |
+| A              | C                           |
+| B              | B                           |
+| C              | C                           |
+
+In this case, all best responses also happen to be strictly best responses. It should also be obvious that Player 1 has a dominant strategy of just B every round.
+
+It's also clear from these that B/B is a Nash Equilibrium, because they are best responses for each other.
+
+For the Pareto Optimum, we'll just walk through the matrix and look at every value and look for another value that would improve upon it without reducing any one player's payoff:
+
+1. (4, 2): not optimal, (4, 4) is better
+2. (5, 1): **optimal**
+3. (3, 0): not optimal, (5, 1) is better
+4. (3, 2): not optimal, (4, 2) is better
+5. (4, 4): **optimal**
+6. (1, 0): not optimal, (3, 0) is better
+7. (2, 3): not optimal, (4, 4) is better
+8. (4, 2): see 1.
+9. (3, 2): see 4.
 
 # Markets
 
