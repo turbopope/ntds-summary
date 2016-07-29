@@ -9,8 +9,6 @@ Unintuitive: rows and columns are in a different order than x and y coordinates 
 
 **Transposing** a matrix ($A^T$) means to turn its rows into columns (or vice-versa). Formally, $A^T_{i,j} = A_{j,i}$. Also $A^{T^T} = A$.
 
-**Inverting** a matrix ($A^{-1}$) looks complicated TODO pls.
-
 **Scalar-on-matrix operations**, like $s \cdot A$ or $s + A$, operate on each element of the matrix. Hence, they “scale” the matrix. They act like other scalar operations would, so for example $s \cdot A = A \cdot s$.
 
 **Matrix multiplication** are is complicated. A vector can be seen as a matrix with only one column, so the same rules apply. They don't act like scalar operations, so you can't reorder them, $AB \neq BA$.
@@ -32,7 +30,7 @@ A square matrix where all elements that are not on the diagonal are zero is call
 
 If all the elements in a diagonal matrix are $1$, then it's an **identity matrix**. Multiplying by it does nothing, much like $1$ in scalar multiplication.
 
-A square matrix is **orthogonal** if $A^T = A^{-1}$, which is the case if $A^T A = A A^T = I$, where $I$ is the identity matrix appropriate for $A$'s dimensions.
+A square matrix is **orthogonal** if $A^T A = A A^T = I$, where $I$ is the identity matrix appropriate for $A$'s dimensions.
 
 
 # Strong And Weak Ties
