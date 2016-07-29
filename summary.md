@@ -128,6 +128,45 @@ which is close enough.
 
 # Link Prediction
 
+... in social networks gives friends-recommendations and the likes. If $A$ is an adjacency matrix, $A^2$ contains the number of common friends of two nodes (and the number of neighbors on the diagonal).
+
+![Ignore the stump on node 4 and the 1-indexing](img/lpgraph.png)
+
+For the graph above, this means:
+
+$$
+A^2=
+\left(\begin{matrix}
+  0 & 1 & 0 & 0 \\
+  1 & 0 & 1 & 1 \\
+  0 & 1 & 0 & 1 \\
+  0 & 1 & 1 & 0
+\end{matrix}\right)^2
+=
+\left(\begin{matrix}
+  1 & 0 & 1 & 1 \\
+  0 & 3 & 1 & 1 \\
+  1 & 1 & 2 & 1 \\
+  1 & 1 & 1 & 2
+\end{matrix}\right)
+$$
+
+For example, based an this, a friendship between $1$ and $3$ would be suggested, because $A^2_{1,3} \geq 1$.
+
+Generally, $A^n$ contains the number of paths with length $n$ between two nodes:
+
+$$
+A^3=
+\left(\begin{matrix}
+  0 & 3 & 1 & 1 \\
+  3 & 2 & 4 & 4 \\
+  1 & 4 & 2 & 3 \\
+  1 & 4 & 3 & 2
+\end{matrix}\right)
+$$
+
+For example the 3 (=$A^3_{1, 2}$) paths of length 3 between $1$ and $2$ are $\{1\rightarrow2\rightarrow1\rightarrow2, 1\rightarrow2\rightarrow3\rightarrow2, 1\rightarrow2\rightarrow4\rightarrow3\}$.
+
 
 # Game Theory
 
