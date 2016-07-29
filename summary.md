@@ -61,7 +61,7 @@ The **Lorenz Curve** describes, for example, how wealth is distributed in the po
 ## Distributions:
 
 * **Normal Distribution** $f(x) = e^{(-x^2/2)}$
-* **Exponential Distribution** $f(x) = x^constant$
+* **Exponential Distribution** $f(x) = x^{constant}$
 * **Power Law Distribution** $f(x) = constant^x$ Looks like a linear function on a log-log scale.
 
 Many distributions IRL follow are power law distributions. For example, few languages are spoken by many people, but many languages are spoken by few people. One explanation for this is the **Rich Get Richer Model**, which states that power laws arise from the feedback introduced by correlated decisions since people tend to copy the decisions of people who acted before them (**Matthew Effect**). This causes an **Information Cascade**. For Marketing this means that there are two markets: One for "Hits" (few items that each sell a lot) and one for "niche products" (many items that each sell worse).
