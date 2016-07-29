@@ -170,6 +170,46 @@ For example the 3 (=$A^3_{1, 2}$) paths of length 3 between $1$ and $2$ are $\{1
 
 # Game Theory
 
+Examines situations where the outcome for one person depends both on their and other people's choices. A **Game** has a set of **Players**. (Stepwise,) Players simultaniously choose **Strategies** and receive **Payoffs**. A Game is completely defined by a **Payoff matrix**, for example the Payoff Matrix of the stupid Ultimatum Game from the slides is:
+
+| Player1/Player2 | Accept | Reject |
+| --------------- | ------ | ------ |
+| Give 0          | (5,0)  | (0,0)  |
+| Give 1          | (4,1)  | (0,0)  |
+| Give 2          | (3,2)  | (0,0)  |
+| Give 3          | (2,3)  | (0,0)  |
+| Give 4          | (1,4)  | (0,0)  |
+| Give 5          | (0,5)  | (0,0)  |
+
+The slides say that *Give 1/Accept* is "the best strategy" but I don't see why, since all payoffs in the *Accept*-column sum up to 5 and also why is a strategy suddenly a pair of "choices" and not just a "choice"?
+
+If Player2 chooses a strategy $T$, $S$ is the **(strict) best response** if it's payoff is better (strictly better) than every other response:
+
+$$
+\forall_{S'\setminus\{S\}}: P_1(S, T) \geq P_1(S', T)
+$$
+
+$P_1$ denotes the payoff for Player 1. A **Dominant Strategy** for Player 1 is a best response to every strategy of Player 2:
+
+$$
+\forall_{S'\setminus\{S\}, T}: P_1(S, T) \geq P_1(S', T)
+$$
+
+A **Nash Equilibrium** is a pair of strategies that are best responses to each other. There can be multiple Nash Equilibria in one game. For example, when two people chose between two incompatible software alternatives, chosing the same alternative are Nash Equilibria.
+
+| A/B        | MSOffice | OpenOffice |
+| ---------- | -------- | ---------- |
+| MSOffice   | (1, 1)   | (0, 0)     |
+| OpenOffice | (0, 0)   | (1, 1)     |
+
+An outcome of a game is **Pareto Optimal** if no other outcome makes all players as well off and at least one player better off. A pair of strategies is **dominated** by another pair if the above is true. $(S,T)$ is dominated by $(S',T')$ if:
+
+$$
+P_1(S') \gt P_1(S) \land P_2(T') \geq P_2(T) \lor P_1(S') \geq P_1(S) \land P_2(T') \gt P_2(T)
+$$
+
+*Mixed Strategies omitted*
+
 
 # Markets
 
