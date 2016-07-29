@@ -75,7 +75,7 @@ $$
 
 The graph above has the adjacency matrix:
 
-~~~
+~~~octave
 A = [
   [0, 1, 1, 0, 0],
   [1, 0, 1, 0, 1],
@@ -100,7 +100,7 @@ Somehow we recognize the 5th column of $V$ as the Eigenvector Centrality Vector 
 
 This can also be calculated manually through the power-iteration:
 
-~~~
+~~~octave
 power_v = ones(rows(A), 1);
 e = 0.000001;
 l = 0;
@@ -218,6 +218,40 @@ $$
 
 
 # Clustering
+
+## Local Clustering Coefficient
+
+Take this graph here:
+
+![This graph here](img/cc0.png)
+
+We'll look at the clustering coefficient of Node 4, which we'll now call $u_4$.
+
+First off, figure out which nodes are neighbors of $u_4$.
+
+![Neighbors to $u_4$](img/cc1.png)
+
+It's connected to $u_2$, $u_3$, $u_5$ and $u_6$. That means its degree $d(u_4) = 4$.
+
+Then count the number of connections between the neighbors of $u_4$:
+
+![Connections between neighbors of $u_4$](img/cc2.png)
+
+It doesn't seem like the lecture gives any name to this, so I'll just call it $p(u_4) = 2$, because it's **p**airs.
+
+Now we can calculate the local clustering coefficient via the formula $cc(u) = \frac{2 p(u)}{d(u) (d(u) - 1)}$:
+
+$$
+cc(u_4) = \frac{2 p(u_4)}{d(u_4) (d(u_4) - 1)} = \frac{2 \cdot 2}{4 \cdot (4 - 1)} = \frac{4}{12} = \frac{1}{3}
+$$
+
+The result will always be $0 \leq cc(u) \leq 1$. The extreme values are shown here:
+
+![Extreme Clusters, Star and Clique](img/ccx.png)
+
+## Global Clustering Coefficient
+
+Calculate the local clustering coefficient for all $u \in G$. Then average them.
 
 
 # Auctions
