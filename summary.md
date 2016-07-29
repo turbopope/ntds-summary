@@ -21,6 +21,8 @@ To multiply two matices on paper just write them down in the figure.
 
 In the example floating around here somewhere, the value for $AB_{1, 2}$ is $A_{1,1} B_{1,2} + A_{1,2} B_{2,2}$. So to find the value of a cell, you summarize the products of each pair, beginning on the left of the left matrix and on the top of the right/top matrix.
 
+**Matrix exponentiation** works as expected: $A^n = \displaystyle{\prod_1^n} A = \underbrace{A A ... A}_{n\textmd{ times}}$.
+
 
 ## Properties
 
@@ -31,6 +33,8 @@ A square matrix where all elements that are not on the diagonal are zero is call
 If all the elements in a diagonal matrix are $1$, then it's an **identity matrix**. Multiplying by it does nothing, much like $1$ in scalar multiplication.
 
 A square matrix is **orthogonal** if $A^T A = A A^T = I$, where $I$ is the identity matrix appropriate for $A$'s dimensions.
+
+TODO: **eigenvectors**, **eigenvalues**
 
 
 # Strong And Weak Ties
