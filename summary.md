@@ -291,7 +291,7 @@ Then count the number of connections between the neighbors of $u_4$:
 
 ![Connections between neighbors of $u_4$](img/cc2.png)
 
-It doesn't seem like the lecture gives any name to this, so I'll just call it $p(u_4) = 2$, because it's **p**airs.
+It doesn't seem like the lecture gives any name to this, so I'll just call it $p(u_4) = 2$, because it's Pairs.
 
 Now we can calculate the local clustering coefficient via the formula $cc(u) = \frac{2 p(u)}{d(u) (d(u) - 1)}$:
 
