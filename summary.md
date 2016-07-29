@@ -208,7 +208,7 @@ $$
 P_1(S') \gt P_1(S) \land P_2(T') \geq P_2(T) \lor P_1(S') \geq P_1(S) \land P_2(T') \gt P_2(T)
 $$
 
-*Mixed Strategies omitted*
+If a player only plays one strategy, he is playing a **Pure Strategy**. If he chooses the strategy at random, he is playing a **Mixed Strategy**. If all players play a Pure Strategy and a Nash Equlibrium, this is called **Pure Strategy Nash Equilibrium**.
 
 
 # Markets
