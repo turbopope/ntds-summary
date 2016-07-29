@@ -181,13 +181,9 @@ Examines situations where the outcome for one person depends both on their and o
 | Give 4          | (1,4)  | (0,0)  |
 | Give 5          | (0,5)  | (0,0)  |
 
-```
-The slides say that *Give 1/Accept* is "the best strategy"
-but I don't see why, since all payoffs in the *Accept*-column
-sum up to 5 and also why is a strategy suddenly a pair of
-"choices" and not just a "choice"?
-– Marcő
-```
+> The slides say that *Give 1/Accept* is "the best strategy" but I don't see why, since all payoffs in the *Accept*-column sum up to 5 and also why is a strategy suddenly a pair of "choices" and not just a "choice"?
+>
+> -- Marcő
 
 That's because the example is bad, it's not actually a simultaneous choice. Player 1 chooses an amount and Player 2 decides *afterwards* if they want to accept or reject. Example broken.
 
@@ -195,7 +191,7 @@ However, you can still reason about this. All players are omniscient, even about
 
 If Player 1 gives 0, Player 2 can't optimize their own gain, so they will fall back to minimizing their opponent's game, leading to a rejection. If Player 1 gives them any other amount, they will accept, because rejecting would compromise the prime directive.
 
-Because of their omniscience, Player 1 *knows* that Player 2 will respond like this, so giving 1 is obviously the best option. This is also why it's a pair of choice, Player 1 already knows what Player 2 will choose and bases their strategy on that.
+Because of their omniscience, Player 1 *knows* that Player 2 will respond like this, so giving 1 is obviously the best option.
 
 If Player2 chooses a strategy $T$, $S$ is the **(strict) best response** if it's payoff is better (strictly better) than every other response:
 
