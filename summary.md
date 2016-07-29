@@ -1,3 +1,36 @@
+# Matrix Basics
+
+A **matrix** is like a vector with two dimensions. The $m \times n$ matrix $A$ has $m$ rows and $n$ columns. $A_{i,j}$ refers to the value in the $i$th row and the $j$th column, based on $1$-indexing.
+
+Unintuitive: rows and columns are in a different order than x and y coordinates would be. Also indexing isn't $0$-based, which is sick and wrong.
+
+
+## Operations
+
+**Transposing** a matrix ($A^T$) means to turn its rows into columns (or vice-versa). Formally, $A^T_{i,j} = A_{j,i}$. Also $A^{T^T} = A$.
+
+**Inverting** a matrix ($A^{-1}$) looks complicated TODO pls.
+
+**Scalar-on-matrix operations**, like $s \cdot A$ or $s + A$, operate on each element of the matrix. Hence, they “scale” the matrix. They act like other scalar operations would, so for example $s \cdot A = A \cdot s$.
+
+**Matrix multiplication** are is complicated. A vector can be seen as a matrix with only one column, so the same rules apply. They don't act like scalar operations, so you can't reorder them, $AB \neq BA$.
+
+You can multiply two matrices $A$ and $B$ if $A$ is an $m \times n$ matrix and $B$ is an $n \times k$ matrix. That is, $m$ and $k$ don't matter, but $n$ needs to be the same.
+
+TODO explain the crazy weird multiplication algorithm here
+
+
+## Properties
+
+An $n \times n$ matrix is a **square matrix**. Every one of these has a **diagonal** at elements $a_{1,1}, a_{2,2} ... a_{n,n}$.
+
+A square matrix where all elements that are not on the diagonal are zero is called **diagonal matrix**.
+
+If all the elements in a diagonal matrix are $1$, then it's an **identity matrix**. Multiplying by it does nothing, much like $1$ in scalar multiplication.
+
+A square matrix is **orthogonal** if $A^T = A^{-1}$, which is the case if $A^T A = A A^T = I$, where $I$ is the identity matrix appropriate for $A$'s dimensions.
+
+
 # Strong And Weak Ties
 
 A **Bridge** is an edge connecting $u$ and $v$ whose removal would cause $u$ and $v$ to lie in two different connected components.
@@ -181,13 +214,9 @@ Examines situations where the outcome for one person depends both on their and o
 | Give 4          | (1,4)  | (0,0)  |
 | Give 5          | (0,5)  | (0,0)  |
 
-```
-The slides say that *Give 1/Accept* is "the best strategy"
-but I don't see why, since all payoffs in the *Accept*-column
-sum up to 5 and also why is a strategy suddenly a pair of
-"choices" and not just a "choice"?
-– Marcő
-```
+> The slides say that *Give 1/Accept* is "the best strategy" but I don't see why, since all payoffs in the *Accept*-column sum up to 5 and also why is a strategy suddenly a pair of "choices" and not just a "choice"?
+>
+> -- Marcő
 
 That's because the example is bad, it's not actually a simultaneous choice. Player 1 chooses an amount and Player 2 decides *afterwards* if they want to accept or reject. Example broken.
 
@@ -195,7 +224,7 @@ However, you can still reason about this. All players are omniscient, even about
 
 If Player 1 gives 0, Player 2 can't optimize their own gain, so they will fall back to minimizing their opponent's game, leading to a rejection. If Player 1 gives them any other amount, they will accept, because rejecting would compromise the prime directive.
 
-Because of their omniscience, Player 1 *knows* that Player 2 will respond like this, so giving 1 is obviously the best option. This is also why it's a pair of choice, Player 1 already knows what Player 2 will choose and bases their strategy on that.
+Because of their omniscience, Player 1 *knows* that Player 2 will respond like this, so giving 1 is obviously the best option.
 
 If Player2 chooses a strategy $T$, $S$ is the **(strict) best response** if it's payoff is better (strictly better) than every other response:
 
