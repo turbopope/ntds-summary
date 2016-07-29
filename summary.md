@@ -313,6 +313,20 @@ The **Utility** of a thing is its subjective value. It is modeled by a **Utility
 
 # Signed Networks
 
+**Signed Networks** have positive and negative edges, for exaple "likes" and "dislikes" in a social network. Most of them are directed. They are **symmetric** if an edge in one direction implies the same edge in the other direction, and **skew-symmetric** if the opposite edge is implied.
+
+There can be **Conflict Triangles**, for example if two persons like the same person and dislike each other. Were the two persons to like each other, the triangle would be **balanced**. A signed network is **weakly balanced** if all its triangles are balanced and **strongly balanced** if some fucking condition that I do not understand is met.
+
+Signed Networks have normal Adjacency Matrices with the addition of $-1$ to represent negative edges.
+
+**Collaborative Filtering** can be used to predict product ratings in bipartite signed networks:
+
+$$
+r(u, i) = \frac{\sum_{v\in V} sim(u,v) r(v,i)}{\sum_{v\in V} sim(u,v)}
+$$
+
+where $r(u, i)$ is the predicted rating of product $i$ by user $u$, $V$ are all other users and $sim(u, v)\in [0,1]$ is the similarity of two users.
+
 
 # Clustering
 
