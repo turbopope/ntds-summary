@@ -7,14 +7,26 @@ A = [
 ]
 
 e = 0.0001;
+a = 0.85;
+n = rows(A);
 
-v = ones(rows(A), 1).';
-v = v / norm(v);
+v = ones(n, 1);
+v = v / n;
 
-do
-  v_old = v;
-  v = v * A;
-  v = v / norm(v);
-until (norm(v_old - v, 2) < e)
+d = A * ones(n, 1);
+d
 
-v
+% G = (1 - a) *
+
+
+
+
+
+
+% do
+%   v_old = v;
+%   v = v * A;
+%   v = v / norm(v);
+% until (norm(v_old - v, 2) < e)
+%
+% v

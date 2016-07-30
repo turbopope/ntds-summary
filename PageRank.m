@@ -1,10 +1,10 @@
-if exist('A.mat', 'file')
-    load -binary A.mat;
-else
-    %A = load_directed('out.munmun_twitter_social');
-    A = load_directed('test');
-    save -binary A.mat A;
-end
+A = [
+  [0, 1, 1, 0, 0],
+  [0, 0, 0, 0, 1],
+  [0, 1, 0, 0, 0],
+  [1, 0, 1, 0, 0],
+  [0, 0, 1, 1, 0]
+]
 
 alpha = 0.2;
 ahpla = 1 - alpha;

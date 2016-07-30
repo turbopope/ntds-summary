@@ -1,6 +1,6 @@
 > Das regt mich auf, das kann nicht sein!
 >
-> -- Carstȅn
+> -- Carsten
 
 # Matrix Basics
 
