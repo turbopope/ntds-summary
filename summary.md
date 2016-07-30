@@ -142,18 +142,18 @@ A = [
 ]
 ~~~
 
-Through some Octave Magic `[V, eigs] = eig(A)` we know A's Eigenvectors:
+Through some Octave Magic `[V, eigs] = eigs(A, 1)` we know A's largest eigenvector:
 
 ~~~
 V =
-  -3.7175e-01  -4.2937e-01  -4.3904e-01   6.0150e-01  -3.5054e-01
-   6.0150e-01  -1.3784e-01   5.1004e-01   3.7175e-01  -4.6996e-01
-  -9.4865e-16   7.7024e-01  -3.0694e-01  -1.3791e-16  -5.5903e-01
-   3.7175e-01  -4.2937e-01  -4.3904e-01  -6.0150e-01  -3.5054e-01
-  -6.0150e-01  -1.3784e-01   5.1004e-01  -3.7175e-01  -4.6996e-01
+  -3.5054e-01
+  -4.6996e-01
+  -5.5903e-01
+  -3.5054e-01
+  -4.6996e-01
 ~~~
 
-Somehow we recognize the 5th column of $V$ as the Eigenvector Centrality Vector (maybe it's because it is the only column that does not contain mixed signs?). Anyway, each element in that column tells us the "Centrality" of the corresponding node (in the example the node $2$ obviously has the highest Centrality).
+Each element in that column tells us the "Centrality" of the corresponding node (in the example the node $2$ obviously has the highest Centrality).
 
 This can also be calculated manually through the power-iteration:
 
