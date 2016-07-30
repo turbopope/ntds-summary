@@ -369,6 +369,17 @@ Calculate the local clustering coefficient for all $u \in G$. Then average them.
 
 # Auctions
 
+* **Sealed-Bid Auction**: Each buyer gets one (secret) bid and the highest bid wins
+  * **Second-Price Sealed-Bid Auction/Vickrey Auction**: The winner pays the second-highest price that was bid
+  * **First-Price Sealed-Bid Auction**: The winner has to buy at his price
+* **English Auction**: Buyers outbid each other
+* **Dutch Auction**: Seller decreases price until one buyer buys
+* **Reverse Auction**: Many sellers, one buyer, the lowest price wins (can be applied to English and Dutch auctions)
+
+The **valuation** is the maximum amount a buyer is willing to bid. The valuation is modeled as the actual worth of an item plus an error term. Bidding below one's valuation to counter this **Winner's Curse** is called **Bid Shading**.
+
+*Marked Matching stuff omitted since that looks really hard and is likely not relevant*.
+
 
 # Cascading
 
