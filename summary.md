@@ -472,3 +472,7 @@ People in a network influence by their actions (but not their knowledge). This c
 
 
 # Network Effects
+
+An **Externality** is a situation where an individual is affected by other individuals.
+
+*WHAT THE FUCK IS GOING ON*.
