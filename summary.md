@@ -15,11 +15,11 @@ Unintuitive: rows and columns are in a different order than x and y coordinates 
 
 You can multiply two matrices $A$ and $B$ if $A$ is an $m \times n$ matrix and $B$ is an $n \times k$ matrix. That is, $m$ and $k$ don't matter, but $n$ needs to be the same.
 
-To multiply two matices on paper just write them down in the figure.
+To multiply two matices on paper just write them down like in the figure:
 
-![Matrix Multiplication with two example cells](img/matrix-multiplication.png)
+![Matrix Multiplication with two example cells](img/matrix-multiplication.png){width="50%"}\
 
-In the example floating around here somewhere, the value for $AB_{1, 2}$ is $A_{1,1} B_{1,2} + A_{1,2} B_{2,2}$. So to find the value of a cell, you summarize the products of each pair, beginning on the left of the left matrix and on the top of the right/top matrix.
+In the example above, the value for $AB_{1, 2}$ is $A_{1,1} B_{1,2} + A_{1,2} B_{2,2}$. So to find the value of a cell, you summarize the products of each pair, beginning on the left of the left matrix and on the top of the right/top matrix.
 
 **Matrix exponentiation** works as expected: $A^n = \displaystyle{\prod_1^n} A = \underbrace{A A ... A}_{n\textmd{ times}}$.
 
@@ -443,7 +443,7 @@ $$
 
 The result will always be $0 \leq cc(u) \leq 1$. The extreme values are shown here:
 
-![Extreme Clusters, Star and Clique](img/ccx.png)
+![Extreme Clusters, Star and Lattice](img/ccx.png)
 
 ## Global Clustering Coefficient
 
@@ -452,8 +452,27 @@ Calculate the local clustering coefficient for all $u \in G$. Then average them.
 
 # Auctions
 
+* **Sealed-Bid Auction**: Each buyer gets one (secret) bid and the highest bid wins
+  * **Second-Price Sealed-Bid Auction/Vickrey Auction**: The winner pays the second-highest price that was bid
+  * **First-Price Sealed-Bid Auction**: The winner has to buy at his price
+* **English Auction**: Buyers outbid each other
+* **Dutch Auction**: Seller decreases price until one buyer buys
+* **Reverse Auction**: Many sellers, one buyer, the lowest price wins (can be applied to English and Dutch auctions)
+
+The **valuation** is the maximum amount a buyer is willing to bid. The valuation is modeled as the actual worth of an item plus an error term. Bidding below one's valuation to counter this **Winner's Curse** is called **Bid Shading**.
+
+*Marked Matching stuff omitted since that looks really hard and is likely not relevant*.
+
 
 # Cascading
 
+People in a network influence by their actions (but not their knowledge). This can cause **cascading effects** through the network, for example in making a particular book really popular or in adopting new technologies. Initial **shocks** are based on personal information, but later people may ignore their knowledge and "follow the crowd".
+
+*Not going into detail here because of irrelevance and previous exposure*.
+
 
 # Network Effects
+
+An **Externality** is a situation where an individual is affected by other individuals.
+
+*WHAT THE FUCK IS GOING ON*.
