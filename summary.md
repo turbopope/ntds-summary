@@ -15,11 +15,11 @@ Unintuitive: rows and columns are in a different order than x and y coordinates 
 
 You can multiply two matrices $A$ and $B$ if $A$ is an $m \times n$ matrix and $B$ is an $n \times k$ matrix. That is, $m$ and $k$ don't matter, but $n$ needs to be the same.
 
-To multiply two matices on paper just write them down in the figure.
+To multiply two matices on paper just write them down like in the figure:
 
-![Matrix Multiplication with two example cells](img/matrix-multiplication.png)
+![Matrix Multiplication with two example cells](img/matrix-multiplication.png){width="50%"}\
 
-In the example floating around here somewhere, the value for $AB_{1, 2}$ is $A_{1,1} B_{1,2} + A_{1,2} B_{2,2}$. So to find the value of a cell, you summarize the products of each pair, beginning on the left of the left matrix and on the top of the right/top matrix.
+In the example above, the value for $AB_{1, 2}$ is $A_{1,1} B_{1,2} + A_{1,2} B_{2,2}$. So to find the value of a cell, you summarize the products of each pair, beginning on the left of the left matrix and on the top of the right/top matrix.
 
 **Matrix exponentiation** works as expected: $A^n = \displaystyle{\prod_1^n} A = \underbrace{A A ... A}_{n\textmd{ times}}$.
 
