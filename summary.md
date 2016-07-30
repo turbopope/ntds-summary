@@ -183,6 +183,69 @@ power_v =
 
 which is close enough.
 
+
+## Random Walk
+
+You know the concept of random walk so I won't explain it again. This section talks about directed graphs, but you can also use it on undirected graphs if you pretend that they're directed graphs with only symmetric edges.
+
+Given is a square $n \times n$ adjacency matrix $A$. We'll use the above one, so $n$ is 5.
+
+To calculate the centrality for all nodes in an adjacency matrix $A$, we first need their outgoing degree for each node. That's easy to calculate:
+
+$$
+d = A \textmd{\textbf{1}} = \left(\begin{matrix}
+    0 & 1 & 1 & 0 & 0 \\
+    1 & 0 & 1 & 0 & 1 \\
+    1 & 1 & 0 & 1 & 1 \\
+    0 & 0 & 1 & 0 & 1 \\
+    0 & 1 & 1 & 1 & 0
+\end{matrix}\right) \left(\begin{matrix}1\\1\\1\\1\\1\end{matrix}\right) = \left(\begin{matrix}
+    2 \\
+    3 \\
+    4 \\
+    2 \\
+    3
+\end{matrix}\right)
+$$
+
+Now $d_i$ is the degree of node $i$. Note that the lecture calls this $d_o$ instead of $d$, but subscripts are already used for indexing. Consistency and all that.
+
+We then need the transition matrix $P$. It's defined as:
+
+$$
+P_{ij} = \left\lbrace \begin{matrix}
+    \frac{1}{n} \textmd{ if } d_i = 0 \\
+    \frac{1}{d_i} \textmd{ if } d_i > 0 \textmd{ and } A_{ij} \neq 0\\
+    0 \textmd{ otherwise}\\
+\end{matrix} \right.
+$$
+
+For our matrix, that is:
+
+$$
+P = \left(\begin{matrix}
+    0 & \frac{1}{2} & \frac{1}{2} & 0 & 0 \\
+    \frac{1}{3} & 0 & \frac{1}{3} & 0 & \frac{1}{3} \\
+    \frac{1}{4} & \frac{1}{4} & 0 & \frac{1}{4} & \frac{1}{4} \\
+    0 & 0 & \frac{1}{2} & 0 & \frac{1}{2} \\
+    0 & \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0
+\end{matrix}\right)
+$$
+
+Somehow you can use this $P$ to compute stuff now.
+
+
+## PageRank
+
+Similar to Random Walk, but each node has a chance $\alpha$ to teleport to a random node.
+
+Instead of $P$, you use the magical Google matrix $G$ and the identity matrix $I$ for $A$:
+
+$$
+G = (1 - \alpha) P + \frac{\alpha I}{n}
+$$
+
+
 # Link Prediction
 
 ... in social networks gives friends-recommendations and the likes. If $A$ is an adjacency matrix, $A^2$ contains the number of common friends of two nodes (and the number of neighbors on the diagonal).
