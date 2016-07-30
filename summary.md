@@ -34,7 +34,25 @@ If all the elements in a diagonal matrix are $1$, then it's an **identity matrix
 
 A square matrix is **orthogonal** if $A^T A = A A^T = I$, where $I$ is the identity matrix appropriate for $A$'s dimensions.
 
-TODO: **eigenvectors**, **eigenvalues**
+
+## Eigen\*
+
+Let $A$ be a square matrix.
+
+The scalar $\lambda$ is an **eigenvalue** of $A$ if you can find a non-zero vector $x$ so that $Ax = \lambda x$.
+
+$x$ is then the **eigenvector** of $A$ corresponding to $\lambda$. You can scale this vector by any $\alpha != 0$ and it remains an eigenvector.
+
+To find those values you need the determinant, which we can't really calculate with our giant matrices. So hopefully we won't have to do that.a
+
+Those are **right** eigenvectors. There's also **left eigenvectors** that use the formula $xA = \lambda x$ instead.
+
+
+## Miscellaneous Gotchas
+
+The **norm** or **length** of a vector $v$ is $||v|| = \sqrt{v_1^2 + v_2^2 + ... + v_n^2}$. Sometimes it's also written as $|v|$ because who even needs consistency.
+
+A bold **1** is sometimes the vector $\left(\begin{matrix}1\\1\\\vdots\\1\end{matrix}\right)$ that is conveniently the right length for the current calculation. Analogous with **0**.
 
 
 # Strong And Weak Ties
