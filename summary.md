@@ -1,3 +1,7 @@
+> Das regt mich auf, das kann nicht sein!
+>
+> -- Carstȅn
+
 # Matrix Basics
 
 A **matrix** is like a vector with two dimensions. The $m \times n$ matrix $A$ has $m$ rows and $n$ columns. $A_{i,j}$ refers to the value in the $i$th row and the $j$th column, based on $1$-indexing.
