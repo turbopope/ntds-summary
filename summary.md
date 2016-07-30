@@ -466,5 +466,9 @@ The **valuation** is the maximum amount a buyer is willing to bid. The valuation
 
 # Cascading
 
+People in a network influence by their actions (but not their knowledge). This can cause **cascading effects** through the network, for example in making a particular book really popular or in adopting new technologies. Initial **shocks** are based on personal information, but later people may ignore their knowledge and "follow the crowd".
+
+*Not going into detail here because of irrelevance and previous exposure*.
+
 
 # Network Effects
