@@ -9,8 +9,6 @@ Unintuitive: rows and columns are in a different order than x and y coordinates 
 
 **Transposing** a matrix ($A^T$) means to turn its rows into columns (or vice-versa). Formally, $A^T_{i,j} = A_{j,i}$. Also $A^{T^T} = A$.
 
-**Inverting** a matrix ($A^{-1}$) looks complicated TODO pls.
-
 **Scalar-on-matrix operations**, like $s \cdot A$ or $s + A$, operate on each element of the matrix. Hence, they “scale” the matrix. They act like other scalar operations would, so for example $s \cdot A = A \cdot s$.
 
 **Matrix multiplication** are is complicated. A vector can be seen as a matrix with only one column, so the same rules apply. They don't act like scalar operations, so you can't reorder them, $AB \neq BA$.
@@ -23,6 +21,8 @@ To multiply two matices on paper just write them down in the figure.
 
 In the example floating around here somewhere, the value for $AB_{1, 2}$ is $A_{1,1} B_{1,2} + A_{1,2} B_{2,2}$. So to find the value of a cell, you summarize the products of each pair, beginning on the left of the left matrix and on the top of the right/top matrix.
 
+**Matrix exponentiation** works as expected: $A^n = \displaystyle{\prod_1^n} A = \underbrace{A A ... A}_{n\textmd{ times}}$.
+
 
 ## Properties
 
@@ -32,7 +32,27 @@ A square matrix where all elements that are not on the diagonal are zero is call
 
 If all the elements in a diagonal matrix are $1$, then it's an **identity matrix**. Multiplying by it does nothing, much like $1$ in scalar multiplication.
 
-A square matrix is **orthogonal** if $A^T = A^{-1}$, which is the case if $A^T A = A A^T = I$, where $I$ is the identity matrix appropriate for $A$'s dimensions.
+A square matrix is **orthogonal** if $A^T A = A A^T = I$, where $I$ is the identity matrix appropriate for $A$'s dimensions.
+
+
+## Eigen\*
+
+Let $A$ be a square matrix.
+
+The scalar $\lambda$ is an **eigenvalue** of $A$ if you can find a non-zero vector $x$ so that $Ax = \lambda x$.
+
+$x$ is then the **eigenvector** of $A$ corresponding to $\lambda$. You can scale this vector by any $\alpha != 0$ and it remains an eigenvector.
+
+To find those values you need the determinant, which we can't really calculate with our giant matrices. So hopefully we won't have to do that.a
+
+Those are **right** eigenvectors. There's also **left eigenvectors** that use the formula $xA = \lambda x$ instead.
+
+
+## Miscellaneous Gotchas
+
+The **norm** or **length** of a vector $v$ is $||v|| = \sqrt{v_1^2 + v_2^2 + ... + v_n^2}$. Sometimes it's also written as $|v|$ because who even needs consistency.
+
+A bold **1** is sometimes the vector $\left(\begin{matrix}1\\1\\\vdots\\1\end{matrix}\right)$ that is conveniently the right length for the current calculation. Analogous with **0**.
 
 
 # Strong And Weak Ties
@@ -59,7 +79,7 @@ The **Lorenz Curve** describes, for example, how wealth is distributed in the po
 ## Distributions:
 
 * **Normal Distribution** $f(x) = e^{(-x^2/2)}$
-* **Exponential Distribution** $f(x) = x^constant$
+* **Exponential Distribution** $f(x) = x^{constant}$
 * **Power Law Distribution** $f(x) = constant^x$ Looks like a linear function on a log-log scale.
 
 Many distributions IRL follow are power law distributions. For example, few languages are spoken by many people, but many languages are spoken by few people. One explanation for this is the **Rich Get Richer Model**, which states that power laws arise from the feedback introduced by correlated decisions since people tend to copy the decisions of people who acted before them (**Matthew Effect**). This causes an **Information Cascade**. For Marketing this means that there are two markets: One for "Hits" (few items that each sell a lot) and one for "niche products" (many items that each sell worse).
@@ -122,18 +142,18 @@ A = [
 ]
 ~~~
 
-Through some Octave Magic `[V, eigs] = eig(A)` we know A's Eigenvectors:
+Through some Octave Magic `[V, eigs] = eigs(A, 1)` we know A's largest eigenvector:
 
 ~~~
 V =
-  -3.7175e-01  -4.2937e-01  -4.3904e-01   6.0150e-01  -3.5054e-01
-   6.0150e-01  -1.3784e-01   5.1004e-01   3.7175e-01  -4.6996e-01
-  -9.4865e-16   7.7024e-01  -3.0694e-01  -1.3791e-16  -5.5903e-01
-   3.7175e-01  -4.2937e-01  -4.3904e-01  -6.0150e-01  -3.5054e-01
-  -6.0150e-01  -1.3784e-01   5.1004e-01  -3.7175e-01  -4.6996e-01
+  -3.5054e-01
+  -4.6996e-01
+  -5.5903e-01
+  -3.5054e-01
+  -4.6996e-01
 ~~~
 
-Somehow we recognize the 5th column of $V$ as the Eigenvector Centrality Vector (maybe it's because it is the only column that does not contain mixed signs?). Anyway, each element in that column tells us the "Centrality" of the corresponding node (in the example the node $2$ obviously has the highest Centrality).
+Each element in that column tells us the "Centrality" of the corresponding node (in the example the node $2$ obviously has the highest Centrality).
 
 This can also be calculated manually through the power-iteration:
 
@@ -162,6 +182,69 @@ power_v =
 ~~~
 
 which is close enough.
+
+
+## Random Walk
+
+You know the concept of random walk so I won't explain it again. This section talks about directed graphs, but you can also use it on undirected graphs if you pretend that they're directed graphs with only symmetric edges.
+
+Given is a square $n \times n$ adjacency matrix $A$. We'll use the above one, so $n$ is 5.
+
+To calculate the centrality for all nodes in an adjacency matrix $A$, we first need their outgoing degree for each node. That's easy to calculate:
+
+$$
+d = A \textmd{\textbf{1}} = \left(\begin{matrix}
+    0 & 1 & 1 & 0 & 0 \\
+    1 & 0 & 1 & 0 & 1 \\
+    1 & 1 & 0 & 1 & 1 \\
+    0 & 0 & 1 & 0 & 1 \\
+    0 & 1 & 1 & 1 & 0
+\end{matrix}\right) \left(\begin{matrix}1\\1\\1\\1\\1\end{matrix}\right) = \left(\begin{matrix}
+    2 \\
+    3 \\
+    4 \\
+    2 \\
+    3
+\end{matrix}\right)
+$$
+
+Now $d_i$ is the degree of node $i$. Note that the lecture calls this $d_o$ instead of $d$, but subscripts are already used for indexing. Consistency and all that.
+
+We then need the transition matrix $P$. It's defined as:
+
+$$
+P_{ij} = \left\lbrace \begin{matrix}
+    \frac{1}{n} \textmd{ if } d_i = 0 \\
+    \frac{1}{d_i} \textmd{ if } d_i > 0 \textmd{ and } A_{ij} \neq 0\\
+    0 \textmd{ otherwise}\\
+\end{matrix} \right.
+$$
+
+For our matrix, that is:
+
+$$
+P = \left(\begin{matrix}
+    0 & \frac{1}{2} & \frac{1}{2} & 0 & 0 \\
+    \frac{1}{3} & 0 & \frac{1}{3} & 0 & \frac{1}{3} \\
+    \frac{1}{4} & \frac{1}{4} & 0 & \frac{1}{4} & \frac{1}{4} \\
+    0 & 0 & \frac{1}{2} & 0 & \frac{1}{2} \\
+    0 & \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0
+\end{matrix}\right)
+$$
+
+Somehow you can use this $P$ to compute stuff now.
+
+
+## PageRank
+
+Similar to Random Walk, but each node has a chance $\alpha$ to teleport to a random node.
+
+Instead of $P$, you use the magical Google matrix $G$ and the identity matrix $I$ for $A$:
+
+$$
+G = (1 - \alpha) P + \frac{\alpha I}{n}
+$$
+
 
 # Link Prediction
 
