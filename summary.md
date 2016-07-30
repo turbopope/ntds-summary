@@ -443,7 +443,7 @@ $$
 
 The result will always be $0 \leq cc(u) \leq 1$. The extreme values are shown here:
 
-![Extreme Clusters, Star and Clique](img/ccx.png)
+![Extreme Clusters, Star and Lattice](img/ccx.png)
 
 ## Global Clustering Coefficient
 
