@@ -292,6 +292,23 @@ $$
 For example the 3 (=$A^3_{1, 2}$) paths of length 3 between $1$ and $2$ are $\{1\rightarrow2\rightarrow1\rightarrow2, 1\rightarrow2\rightarrow3\rightarrow2, 1\rightarrow2\rightarrow4\rightarrow3\}$.
 
 
+## Deep Magic Link Prediction
+
+```C
+/* deep magic begins here */
+```
+
+Go forwards through a directed graph: $A$
+
+Go backwards: $A'$
+
+Go any number of times forwards $exp(A)$
+
+Concatenation: $\cdot$
+
+Alternation: $+$
+
+
 # Game Theory
 
 Examines situations where the outcome for one person depends both on their and other people's choices. A **Game** has a set of **Players**. (Stepwise,) Players simultaniously choose **Strategies** and receive **Payoffs**. A Game is completely defined by a **Payoff matrix**, for example the Payoff Matrix of the stupid Ultimatum Game from the slides is:
@@ -449,9 +466,17 @@ The result will always be $0 \leq cc(u) \leq 1$. The extreme values are shown he
 
 ![Extreme Clusters, Star and Lattice](img/ccx.png)
 
-## Global Clustering Coefficient
+## Average Clustering Coefficient
 
 Calculate the local clustering coefficient for all $u \in G$. Then average them.
+
+## Global Clustering Coefficient
+
+$CC(G) = \frac{6 \cdot \#triangles}{\#wedges}$
+
+Calculate the number of triangles: $A^3$, sum up the diagonal, divide by $6$.
+
+Calculate the number of wedges: $A^2$, sump up everything *except* the diagonal.
 
 
 # Auctions
